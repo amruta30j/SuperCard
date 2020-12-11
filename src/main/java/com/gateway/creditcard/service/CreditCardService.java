@@ -37,7 +37,7 @@ public class CreditCardService {
                 //When validated successfully, it then transforms it to an CreditCardEntity type
                 CreditCardEntity creditCardEntity = transform(creditCard);
                 //This block is ensuring that there is no already existing credit card
-                if (creditCardRepository.findById(Long.valueOf(creditCardEntity.getCardNumber())).isPresent()) {
+                if (creditCardRepository.findById(creditCardEntity.getCardNumber()).isPresent()) {
                     //if the card exists already, a service error will be set with an appropriate error message
                     response.setServiceError(ServiceResponse.ServiceError.ALREADY_EXISTS);
                 } else {

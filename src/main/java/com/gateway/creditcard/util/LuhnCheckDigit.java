@@ -16,6 +16,12 @@ public class LuhnCheckDigit {
     public boolean checkDigit(String numberToBeValidated) {
         int[] number = convert2Array(numberToBeValidated);
         return IntStream.range(0, number.length)
+                //Its an algo to check the simple data entry errors in the algo
+                //last digit is always check digit in the algo
+                //can be validated using two methods
+                //0^0 is 0
+                //For every even position from right we take sum of digits of double the number and for odd position we take a number directly
+                //checks for an even lenght position         //double the number and sum individual digits, for odd position add the num as it is
                 .map(i -> (((i % 2) ^ (number.length % 2)) == 0) ? ((2 * number[i]) / 10 + (2 * number[i]) % 10) : number[i])
                 .sum() % 10 == 0;
     }

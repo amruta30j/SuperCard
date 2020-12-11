@@ -27,7 +27,6 @@ public class CreditCardController {
      * @return ResponseEntity<String>
      */
     @PostMapping(value = "api/creditcard/v1/add")
-    @ResponseBody
     public ResponseEntity<String> add(@RequestBody CreditCard creditCard) {
         ResponseEntity<String> response;
         ServiceResponse<CreditCard> serviceResponse = creditCardService.add(creditCard);
@@ -49,7 +48,6 @@ public class CreditCardController {
      * @return ResponseEntity<List<CreditCard>>
      */
     @GetMapping(value = "api/creditcard/v1/get")
-    @ResponseBody
     public ResponseEntity<List<CreditCard>> get() {
         ResponseEntity<List<CreditCard>> response;
         ServiceResponse<List<CreditCard>> serviceResponse = creditCardService.get();
